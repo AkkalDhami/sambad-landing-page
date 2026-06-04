@@ -8,7 +8,23 @@ import { cn } from "@/lib/utils"
 export function ConversationList({ className }: { className?: string }) {
   return (
     <div className={cn("", className)}>
-      <h1 className="mb-3 text-lg font-bold">Conversations</h1>
+      <motion.h1
+        initial={{
+          opacity: 0,
+          filter: "blur(6px)",
+        }}
+        animate={{
+          opacity: 1,
+          filter: "blur(0px)",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+        }}
+        className="mb-3 text-lg font-medium"
+      >
+        Conversations
+      </motion.h1>
 
       <motion.div
         initial="hidden"
