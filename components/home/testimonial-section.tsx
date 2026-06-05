@@ -19,7 +19,10 @@ import { motion } from "motion/react"
 
 export function TestimonialSection() {
   return (
-    <Section className="w-full space-y-4 [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!">
+    <Section
+      id="testimonial"
+      className="w-full space-y-4 [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!"
+    >
       <div className="animate-fade-in-blur mx-auto mb-8 max-w-4xl space-y-2">
         <Heading>Loved by businesses across Nepal</Heading>
         <SubHeading>

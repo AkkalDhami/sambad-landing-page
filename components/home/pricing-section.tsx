@@ -84,10 +84,7 @@ const plans: Plan[] = [
       "1,000 free AI messages / month",
       "Advanced lead scoring & filtering",
       "Blanxer integration (agentic selling)",
-      "Priority support",
-      "Custom workflows",
-      "Analytics dashboard",
-      "Priority onboarding",
+      "Every feature included in Growth +",
     ],
     btn: {
       text: "Contact sales",
@@ -115,7 +112,7 @@ export function PricingSection() {
       </div>
 
       <FrequencyToggle frequency={frequency} setFrequency={setFrequency} />
-      <div className="mt-2 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-3">
+      <div className="mt-3 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-3">
         {plans.map((plan) => (
           <PricingCard frequency={frequency} key={plan.name} plan={plan} />
         ))}

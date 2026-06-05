@@ -21,7 +21,7 @@ export function FaqsSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
-    <Section className="mx-auto mt-12 max-w-4xl space-y-4">
+    <Section id="faq" className="mx-auto mt-12 max-w-4xl space-y-4">
       <div className="space-y-7">
         <div className="space-y-2 text-center">
           <Heading className="mb-3 text-3xl font-semibold sm:text-4xl">
@@ -37,56 +37,79 @@ export function FaqsSection() {
           const isActive = activeId === item.id
           const isHovered = hoveredId === item.id
           return (
-            <AccordionItem className="px-4" key={item.id} value={item.id}>
-              <AccordionTrigger
-                onClick={() => setActiveId(isActive ? null : item.id)}
-                onMouseEnter={() => setHoveredId(item.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className="flex items-center gap-2 py-4 text-base font-normal hover:no-underline focus-visible:underline focus-visible:ring-0 sm:text-xl"
-              >
-                <div
-                  className={cn(
-                    "relative flex size-7 items-center justify-center rounded-full text-sm",
-                    isActive && "text-white"
-                  )}
+            <motion.div
+              key={item.id}
+              initial={{
+                opacity: 0,
+                y: 20,
+                filter: "blur(10px)",
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 25,
+              }}
+            >
+              <AccordionItem className="px-4" value={item.id}>
+                <AccordionTrigger
+                  onClick={() => setActiveId(isActive ? null : item.id)}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  className="flex items-center gap-2 py-4 text-base font-normal hover:no-underline focus-visible:underline focus-visible:ring-0 sm:text-xl"
                 >
-                  <motion.div
+                  <div
                     className={cn(
-                      "absolute inset-0 rounded-full bg-foreground"
+                      "relative flex size-7 items-center justify-center rounded-full text-sm",
+                      isActive && "text-white"
                     )}
-                    initial={false}
-                    animate={{
-                      scale: isActive ? 1 : isHovered ? 1 : 0,
-                      opacity: isActive ? 1 : isHovered ? 0.1 : 0,
-                      backgroundColor: isActive
-                        ? "var(--color-brand-600)"
-                        : isHovered
-                          ? "var(--color-foreground)"
-                          : "transparent",
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  />{" "}
-                  <motion.span
-                    className="relative z-10 text-sm font-medium tracking-wide"
-                    animate={{
-                      color: isActive
-                        ? "white"
-                        : "var(--color-accent-foreground)",
-                    }}
-                    transition={{ duration: 0.2 }}
                   >
-                    {ind + 1}
-                  </motion.span>
-                </div>
-                {item.title}
-              </AccordionTrigger>
-              <AccordionContent className="pb-4! text-base text-muted-foreground">
-                <AnimatedText
-                  text={item.content}
-                  className="text-sm sm:text-lg"
-                />
-              </AccordionContent>
-            </AccordionItem>
+                    <motion.div
+                      className={cn(
+                        "absolute inset-0 rounded-full bg-foreground"
+                      )}
+                      initial={false}
+                      animate={{
+                        scale: isActive ? 1 : isHovered ? 1 : 0,
+                        opacity: isActive ? 1 : isHovered ? 0.1 : 0,
+                        backgroundColor: isActive
+                          ? "var(--color-brand-600)"
+                          : isHovered
+                            ? "var(--color-foreground)"
+                            : "transparent",
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                      }}
+                    />{" "}
+                    <motion.span
+                      className="relative z-10 text-sm font-medium tracking-wide"
+                      animate={{
+                        color: isActive
+                          ? "white"
+                          : "var(--color-accent-foreground)",
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {ind + 1}
+                    </motion.span>
+                  </div>
+                  {item.title}
+                </AccordionTrigger>
+                <AccordionContent className="pb-4! text-base text-muted-foreground">
+                  <AnimatedText
+                    text={item.content}
+                    className="text-sm sm:text-lg"
+                  />
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           )
         })}
       </Accordion>
