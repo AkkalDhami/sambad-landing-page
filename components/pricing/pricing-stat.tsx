@@ -45,7 +45,7 @@ export function PricingStats({ className }: { className?: string }) {
   return (
     <motion.div
       className={cn(
-        "my-8 flex w-full items-center justify-between flex-wrap gap-4",
+        "my-8 grid w-full grid-cols-1 items-center gap-4 sm:grid-cols-2",
         className
       )}
       initial="hidden"

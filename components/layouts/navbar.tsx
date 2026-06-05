@@ -10,6 +10,14 @@ import { ThemeToggle } from "@/components/shared/theme-toggle"
 
 export const navLinks = [
   {
+    label: "FAQs",
+    href: "/#faq",
+  },
+  {
+    label: "Testimonials",
+    href: "/#testimonial",
+  },
+  {
     label: "Pricing",
     href: "/pricing",
   },
@@ -21,7 +29,6 @@ export const navLinks = [
 
 export function Navbar() {
   const scrolled = useScroll(10)
-
   return (
     <header
       className={cn("sticky top-0 z-50 w-full border-transparent", {
@@ -38,16 +45,22 @@ export function Navbar() {
           <Logo />
         </div>
         <div className="hidden items-center gap-4 md:flex">
-          <nav className="flex items-center gap-5">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="font-medium text-muted-foreground hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="flex items-center gap-1">
+            {navLinks.map((link) => {
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={cn(
+                    "relative px-4 font-normal",
+
+                    "text-muted-primary hover:text-primary"
+                  )}
+                >
+                  <span className="relative z-10">{link.label}</span>
+                </Link>
+              )
+            })}
           </nav>
           <Button
             size={"lg"}

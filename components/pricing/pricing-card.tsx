@@ -136,6 +136,21 @@ export function PricingCard({
           text={`billed ${frequency}`}
         />
       </div>
+
+      <div
+        className={cn(
+          "mt-auto w-full border-y border-border p-3",
+          plan.highlighted && "bg-card dark:bg-card/80"
+        )}
+      >
+        <Button
+          nativeButton={false}
+          render={<Link href={plan.btn.href}>{plan.btn.text}</Link>}
+          className="h-11 w-full"
+          variant={plan.highlighted ? "brand" : "outline"}
+        ></Button>
+      </div>
+
       <div
         className={cn(
           "space-y-3 px-4 pt-6 pb-8 text-sm text-muted-foreground",
@@ -154,19 +169,6 @@ export function PricingCard({
             />
           </div>
         ))}
-      </div>
-      <div
-        className={cn(
-          "mt-auto w-full border-t p-3",
-          plan.highlighted && "bg-card dark:bg-card/80"
-        )}
-      >
-        <Button
-          nativeButton={false}
-          render={<Link href={plan.btn.href}>{plan.btn.text}</Link>}
-          className="h-11 w-full"
-          variant={plan.highlighted ? "brand" : "outline"}
-        ></Button>
       </div>
     </motion.div>
   )
