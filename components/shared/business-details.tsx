@@ -63,7 +63,7 @@ export function VerifiedBusinessDetails() {
               label: "Complaint Officer",
               value: (
                 <div className="space-y-1">
-                  <div className="font-semibold">
+                  <div className="font-medium">
                     Prasiddha Bogati
                   </div>
                   <div className="text-sm text-muted-foreground">9840172158</div>
@@ -90,7 +90,7 @@ function InfoColumn({ items }: InfoColumnProps) {
   return (
     <div className="border-r border-white/10 last:border-r-0">
       {items.map((item) => (
-        <div key={item.label} className="px-6 py-6">
+        <div key={item.label} className="px-6 py-4">
           <p className="mb-3 text-xs animate-fade-in-blur font-medium tracking-[0.2em] text-zinc-500 uppercase">
             {item.label}
           </p>

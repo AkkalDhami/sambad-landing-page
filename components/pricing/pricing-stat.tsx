@@ -45,7 +45,7 @@ export function PricingStats({ className }: { className?: string }) {
   return (
     <motion.div
       className={cn(
-        "my-8 flex w-full items-center justify-between gap-4",
+        "my-8 flex w-full items-center justify-between flex-wrap gap-4",
         className
       )}
       initial="hidden"
@@ -82,18 +82,10 @@ export function PricingStats({ className }: { className?: string }) {
               },
             }}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Icon className="size-10 rounded-lg bg-green-500/10 p-2 text-green-600" />
-            </motion.div>
+            <Icon className="size-10 rounded-lg bg-green-500/10 p-2 text-green-600" />
 
             <div className="flex flex-col">
-              <AnimatedText
-                className="text-base"
-                text={stat.label}
-              />
+              <AnimatedText className="text-base" text={stat.label} />
 
               <AnimatedText
                 className="text-sm text-muted-foreground"

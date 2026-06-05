@@ -163,8 +163,8 @@ export function Footer() {
       <VerifiedBusinessDetails />
       <FooterBrandName />
       <div className="h-px w-full bg-linear-to-r via-border" />
-      <div className="flex w-full items-center justify-center py-4">
-        <p className="flex items-center gap-1 text-base text-muted-foreground">
+      <div className="flex w-full items-center flex-wrap justify-center py-4">
+        <p className="flex items-center gap-1 flex-wrap text-base text-muted-foreground">
           &copy; {new Date().getFullYear()} |{" "}
           <Link
             href={"https://www.blanxer.com/"}
