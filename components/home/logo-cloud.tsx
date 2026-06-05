@@ -1,6 +1,6 @@
 "use client"
 
-import { Marquee } from "@/components/ui/marquee"
+import { Marquee } from "@/components/ui/marqueee"
 import { Container } from "../shared/container"
 import React from "react"
 import {
