@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Marquee,
@@ -15,11 +15,12 @@ import { IconQuoteOpen } from "@tabler/icons-react"
 import { Section } from "@/components/ui/section"
 import { Heading } from "@/components/ui/heading"
 import { SubHeading } from "@/components/ui/sub-heading"
+import { motion } from "motion/react"
 
 export function TestimonialSection() {
   return (
     <Section className="w-full space-y-4 [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!">
-      <div className="animate-fade-in-blur mb-8 mx-auto max-w-4xl space-y-2">
+      <div className="animate-fade-in-blur mx-auto mb-8 max-w-4xl space-y-2">
         <Heading>Loved by businesses across Nepal</Heading>
         <SubHeading>
           Hundreds of brands use Sambad to handle conversations across every
@@ -42,7 +43,24 @@ export function TestimonialSection() {
                       className="size-8 text-muted-foreground"
                     />
                     <TestimonialQuote className="">
-                      <p>{item.quote}</p>
+                      <motion.p
+                        initial={{
+                          opacity: 0,
+                          y: 10,
+                          filter: "blur(10px)",
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                          y: 0,
+                          filter: "blur(0px)",
+                          transition: {
+                            duration: 0.3,
+                            ease: "easeOut",
+                          },
+                        }}
+                      >
+                        {item.quote}
+                      </motion.p>
                     </TestimonialQuote>
                   </Testimonial>
                 </TestimonialSpotlight>
