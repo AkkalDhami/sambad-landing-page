@@ -3,6 +3,9 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { cn } from "@/lib/utils"
+import { seo } from "@/lib/seo"
+
+export const metadata = seo
 
 const interHeading = Inter({ subsets: ["latin"], variable: "--font-heading" })
 
