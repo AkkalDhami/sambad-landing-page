@@ -15,10 +15,25 @@ export function Heading({
 
   return (
     <Tag
+      initial={{
+        opacity: 0,
+        y: 20,
+        filter: "blur(10px)",
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+      }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
       className={cn(
-        "font-inter mb-3 text-center text-3xl font-bold sm:text-5xl",
+        "font-inter mb-3 text-center text-2xl font-bold sm:text-5xl",
         as === "h2" &&
-          "text-center text-4xl font-medium sm:text-4xl sm:font-semibold",
+          "animate-fade-in-blur text-center text-3xl font-medium sm:text-4xl sm:font-semibold",
         className
       )}
     >
