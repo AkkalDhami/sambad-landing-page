@@ -30,7 +30,7 @@ export default function RootLayout({
         interHeading.variable
       )}
     >
-      <body>
+      <body className="selection:bg-brand-600 selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
