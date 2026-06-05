@@ -1,9 +1,13 @@
 "use client"
 import { cn } from "@/lib/utils"
-import { motion, useReducedMotion } from "motion/react"
 import type { ReactNode } from "react"
-import { Facebook, Instagram, TikTok, WhatsApp } from "../icons"
-import { Logo } from "../shared/logo"
+import { Facebook, Instagram, TikTok, WhatsApp } from "@/components/icons"
+import { Logo } from "@/components/shared/logo"
+import Link from "next/link"
+import { IconHeartFilled } from "@tabler/icons-react"
+import Image from "next/image"
+import { VerifiedBusinessDetails } from "@/components/shared/business-details"
+import { AnimatedContainer } from "@/components/ui/animated-container"
 
 type FooterLink = {
   title: string
@@ -20,54 +24,63 @@ const footerLinks: FooterSection[] = [
   {
     label: "Product",
     links: [
-      { title: "Features", href: "#" },
-      { title: "Pricing", href: "#" },
-      { title: "Testimonials", href: "#" },
-      { title: "Integration", href: "#" },
+      { title: "Omnichannel Inbox", href: "#" },
+      { title: "Lead Scoring", href: "#" },
+      { title: "Message Labeling", href: "#" },
+      { title: "Analytics", href: "#" },
+      { title: "Integrations", href: "#" },
+      { title: "Pricing", href: "/pricing" },
     ],
   },
   {
     label: "Channels",
     links: [
-      { title: "FAQs", href: "#" },
-      { title: "About Us", href: "#" },
-      { title: "Privacy Policy", href: "#" },
-      { title: "T&S", href: "#" },
+      { title: "WhatsApp Business", href: "#" },
+      { title: "Instagram", href: "#" },
+      { title: "Facebook", href: "#" },
+      { title: "TikTok", href: "#" },
+      { title: "Website Widget", href: "#" },
+      { title: "Gmail", href: "#" },
+      { title: "Outlook", href: "#" },
+      { title: "Zoho Mail", href: "#" },
     ],
   },
   {
     label: "Company",
     links: [
-      { title: "Blog", href: "#" },
-      { title: "Changelog", href: "#" },
-      { title: "Brand", href: "#" },
-      { title: "Help", href: "#" },
+      { title: "About Sambad", href: "#" },
+      { title: "Careers", href: "#" },
+      { title: "Refer & Earn", href: "#" },
+      { title: "Contact", href: "#" },
+      { title: "Privacy Policy", href: "#" },
+      { title: "Terms of Service", href: "#" },
+      { title: "Return & Refund", href: "#" },
     ],
   },
+]
+
+type ContactLink = FooterLink & { icon?: ReactNode }
+
+const contactLinks: ContactLink[] = [
   {
-    label: "Social Links",
-    links: [
-      {
-        title: "Facebook",
-        href: "#",
-        icon: <Facebook />,
-      },
-      {
-        title: "Instagram",
-        href: "#",
-        icon: <Instagram />,
-      },
-      {
-        title: "WhatsApp",
-        href: "#",
-        icon: <WhatsApp />,
-      },
-      {
-        title: "TikTok",
-        href: "#",
-        icon: <TikTok />,
-      },
-    ],
+    title: "Facebook",
+    href: "#",
+    icon: <Facebook />,
+  },
+  {
+    title: "Instagram",
+    href: "#",
+    icon: <Instagram />,
+  },
+  {
+    title: "WhatsApp",
+    href: "#",
+    icon: <WhatsApp />,
+  },
+  {
+    title: "TikTok",
+    href: "#",
+    icon: <TikTok />,
   },
 ]
 
@@ -81,16 +94,46 @@ export function Footer() {
     >
       <div className="absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/20 blur" />
 
-      <div className="grid w-full gap-8 py-6 md:py-8 lg:grid-cols-3 lg:gap-8">
-        <AnimatedContainer className="space-y-4">
+      <div className="grid w-full gap-8 py-6 md:py-8 lg:grid-cols-4 lg:gap-8">
+        <AnimatedContainer className="space-y-6">
           <Logo />
           <p className="mt-6 text-base text-muted-foreground md:mt-4">
             The AI-powered omnichannel messaging platform. One inbox. Every
             channel. AI that handles the work.
           </p>
+
+          <div className="flex items-center gap-4">
+            {contactLinks.map((link) => (
+              <Link
+                className="flex size-10 items-center justify-center rounded-full border border-input duration-250 hover:text-foreground [&_svg]:size-6"
+                href={link.href}
+                key={link.title}
+              >
+                {link.icon}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-1 font-medium text-muted-foreground">
+            Powered by{" "}
+            <Link
+              href={"https://www.blanxer.com/"}
+              target="_blank"
+              className="flex items-center gap-1 text-accent-foreground"
+            >
+              <Image
+                src="/blanxer.png"
+                alt="Blanxer"
+                width={20}
+                height={20}
+                className="size-6"
+              />
+              Blanxer
+            </Link>{" "}
+          </div>
         </AnimatedContainer>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2 lg:mt-0">
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 lg:col-span-3 lg:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer delay={0.1 + index * 0.1} key={section.label}>
               <div className="mb-10 md:mb-0">
@@ -116,40 +159,35 @@ export function Footer() {
           ))}
         </div>
       </div>
+
+      <VerifiedBusinessDetails />
+      <FooterBrandName />
       <div className="h-px w-full bg-linear-to-r via-border" />
       <div className="flex w-full items-center justify-center py-4">
-        <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} efferd, All rights reserved
+        <p className="flex items-center gap-1 text-base text-muted-foreground">
+          &copy; {new Date().getFullYear()} |{" "}
+          <Link
+            href={"https://www.blanxer.com/"}
+            target="_blank"
+            className="text-brand-500 underline-offset-2 hover:underline"
+          >
+            Blanxer
+          </Link>{" "}
+          Technology Pvt. Ltd. | Made with{" "}
+          <IconHeartFilled className="size-3.5 text-red-600" /> in Nepal
         </p>
       </div>
     </footer>
   )
 }
 
-function AnimatedContainer({
-  className,
-  delay = 0.1,
-  children,
-}: {
-  delay?: number
-  className?: string
-  children: ReactNode
-}) {
-  const shouldReduceMotion = useReducedMotion()
-
-  if (shouldReduceMotion) {
-    return children
-  }
-
+function FooterBrandName({ className }: { className?: string }) {
   return (
-    <motion.div
-      className={className}
-      initial={{ filter: "blur(4px)", translateY: -8, opacity: 0 }}
-      transition={{ delay, duration: 0.8 }}
-      viewport={{ once: true }}
-      whileInView={{ filter: "blur(0px)", translateY: 0, opacity: 1 }}
-    >
-      {children}
-    </motion.div>
+    <AnimatedContainer className={cn("my-4", className)}>
+      <h3 className="flex items-center gap-2 mask-b-from-20% text-3xl font-semibold text-muted-foreground sm:text-6xl md:text-7xl lg:text-8xl">
+        sambad.io by blanxer
+      </h3>
+    </AnimatedContainer>
   )
 }
+

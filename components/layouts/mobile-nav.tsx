@@ -4,7 +4,7 @@ import React from "react"
 import { Button } from "@/components/ui/button"
 import { IconMenu2, IconX } from "@tabler/icons-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { navLinks } from "@/components/layouts/nabvar"
+import { navLinks } from "@/components/layouts/navbar"
 import Link from "next/link"
 import { Logo } from "@/components/shared/logo"
 import { motion } from "motion/react"
@@ -15,35 +15,40 @@ export function MobileNav() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger
-        render={
-          <Button
-            aria-controls="mobile-menu"
-            aria-expanded={open}
-            aria-label="Toggle menu"
-            className="md:hidden"
-            size="icon"
-            variant="outline"
-          >
-            <div
-              className={cn(
-                "transition-all",
-                open ? "scale-100 opacity-100" : "scale-0 opacity-0"
-              )}
+      <div className="flex items-center gap-3 md:hidden">
+        <SheetTrigger
+          nativeButton={true}
+          render={
+            <Button
+              aria-controls="mobile-menu"
+              aria-expanded={open}
+              aria-label="Toggle menu"
+              className="md:hidden"
+              size="icon"
+              variant="outline"
             >
-              <IconX />
-            </div>
-            <div
-              className={cn(
-                "absolute transition-all",
-                open ? "scale-0 opacity-0" : "scale-100 opacity-100"
-              )}
-            >
-              <IconMenu2 />
-            </div>
-          </Button>
-        }
-      ></SheetTrigger>
+              <div
+                className={cn(
+                  "transition-all",
+                  open ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                )}
+              >
+                <IconX />
+              </div>
+
+              <div
+                className={cn(
+                  "absolute transition-all",
+                  open ? "scale-0 opacity-0" : "scale-100 opacity-100"
+                )}
+              >
+                <IconMenu2 />
+              </div>
+            </Button>
+          }
+        ></SheetTrigger>
+        <ThemeToggle />
+      </div>
       <SheetContent side="right" className="flex flex-col p-6">
         <div className="mb-4">
           <Logo />
@@ -73,7 +78,6 @@ export function MobileNav() {
           <Button size="lg" variant="outline" className="w-full rounded-full">
             Sign Up
           </Button>
-          <ThemeToggle />
         </div>
       </SheetContent>
     </Sheet>

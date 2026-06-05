@@ -29,14 +29,22 @@ export function Navbar() {
           scrolled,
       })}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4">
+      <nav
+        className={cn(
+          "mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4"
+        )}
+      >
         <div className="flex items-center gap-5">
           <Logo />
         </div>
         <div className="hidden items-center gap-4 md:flex">
           <nav className="flex items-center gap-5">
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="font-medium">
+              <Link
+                key={link.label}
+                href={link.href}
+                className="font-medium text-muted-foreground hover:text-foreground"
+              >
                 {link.label}
               </Link>
             ))}
