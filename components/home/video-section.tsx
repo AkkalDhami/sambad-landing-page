@@ -66,7 +66,7 @@ function VideoCard({ data, type }: VideoCardProps) {
         {type === "macbook" ? (
           <MacbookPro
             video={src}
-            className="mx-auto w-[400px] sm:mt-4 sm:w-[600px]"
+            className="mx-auto w-[330px] h-auto sm:w-[400px] sm:mt-4 md:w-[600px]"
           />
         ) : (
           <video

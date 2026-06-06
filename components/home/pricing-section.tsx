@@ -112,7 +112,7 @@ export function PricingSection() {
       </div>
 
       <FrequencyToggle frequency={frequency} setFrequency={setFrequency} />
-      <div className="mt-3 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-3">
+      <div className="mt-3 grid w-full grid-cols-1 items-center gap-6 space-y-5 sm:space-y-0 md:grid-cols-3">
         {plans.map((plan) => (
           <PricingCard frequency={frequency} key={plan.name} plan={plan} />
         ))}

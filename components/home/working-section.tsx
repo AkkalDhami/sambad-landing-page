@@ -279,7 +279,7 @@ export function WorkingSection({
                 <MacbookPro
                   image={data[currentIndex]?.image}
                   video={data[currentIndex]?.video}
-                  className="mx-auto w-[400px] sm:h-[600px] sm:w-[600px] md:w-[500px] lg:w-[700px]"
+                  className="mx-auto h-auto w-[330px] sm:h-[600px] sm:w-[600px] md:w-[500px] lg:w-[700px]"
                 />
               </motion.div>
             ) : (
@@ -289,7 +289,7 @@ export function WorkingSection({
 
           <ul
             ref={carouselRef}
-            className="flex h-full snap-x snap-mandatory scrollbar-none flex-nowrap overflow-x-auto mask-[linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] lg:hidden [&::-webkit-scrollbar]:hidden"
+            className="flex h-full w-[200px] snap-x snap-mandatory scrollbar-none flex-nowrap overflow-x-auto mask-[linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] lg:hidden [&::-webkit-scrollbar]:hidden"
             style={{
               padding: "50px calc(50%)",
             }}
@@ -297,7 +297,7 @@ export function WorkingSection({
             {data.map((item, index) => (
               <div
                 key={item.id}
-                className="card relative mr-8 grid h-full max-w-60 shrink-0 items-start justify-center py-4 last:mr-0"
+                className="card relative mr-8 grid h-full max-w-40 shrink-0 items-start justify-center py-4 last:mr-0 sm:max-w-60"
                 onClick={() => setCurrentIndex(index)}
                 style={{
                   scrollSnapAlign: "center",
@@ -315,7 +315,7 @@ export function WorkingSection({
                   ></div>
                 </div>
                 <h2 className="text-xl font-medium">{item.title}</h2>
-                <p className="mx-0 max-w-sm text-muted-foreground text-sm text-balance">
+                <p className="mx-0 max-w-sm text-sm text-balance text-muted-foreground">
                   {item.content}
                 </p>
               </div>

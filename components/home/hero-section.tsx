@@ -220,7 +220,7 @@ export function HeroSection2() {
           viewport={{ once: true }}
           className="mx-auto max-w-3xl"
         >
-          <PhoneCard className="relative z-20 h-150 w-90 bg-background sm:hidden lg:block lg:w-80" />
+          <PhoneCard className="relative z-20 h-150 w-80 sm:w-90 bg-background sm:hidden lg:block lg:w-80" />
         </motion.div>
       </div>
       {/* <HexagonBackground
@@ -252,7 +252,7 @@ export function HeroSection2() {
       >
         <MacbookPro
           image="/main-hero.png"
-          className="mt-8 w-[400px] sm:h-[600px] sm:w-[600px] md:w-[800px] lg:h-[800px] lg:w-[1150px]"
+          className="mt-8 w-[300px] mx-auto sm:h-[600px] sm:w-[600px] md:w-[800px] lg:h-[800px] lg:w-[1150px]"
         />
       </motion.div>
     </section>
