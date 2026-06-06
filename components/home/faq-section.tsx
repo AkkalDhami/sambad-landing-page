@@ -89,7 +89,7 @@ export function FaqsSection() {
                       }}
                     />{" "}
                     <motion.span
-                      className="relative z-10 text-sm font-medium tracking-wide"
+                      className="relative z-10 flex size-[50px] shrink-0 items-center justify-center text-xs font-medium tracking-wide sm:text-sm"
                       animate={{
                         color: isActive
                           ? "white"
