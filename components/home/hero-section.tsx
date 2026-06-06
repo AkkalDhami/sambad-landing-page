@@ -74,7 +74,7 @@ export function HeroSection() {
           more — one AI-powered inbox built for growing teams.
         </p>
 
-        <div className="animate-fade-in-blur mx-auto flex w-fit max-w-2xl animate-in items-center justify-center gap-3 pt-2 delay-300 duration-500 ease-out fill-mode-backwards slide-in-from-bottom-10 fade-in">
+        <div className="animate-fade-in-blur mx-auto flex flex-wrap w-fit max-w-2xl animate-in items-center justify-center gap-3 pt-2 delay-300 duration-500 ease-out fill-mode-backwards slide-in-from-bottom-10 fade-in">
           <Button variant={"brand"} size={"lg"} className={"h-14 w-44 text-lg"}>
             Get started <IconArrowRight className="size-5" />
           </Button>
@@ -174,7 +174,7 @@ export function HeroSection2() {
 
           <div
             className={cn(
-              "animate-fade-in-blur flex w-fit animate-in items-center justify-center gap-3 pt-2 delay-300 duration-300 ease-out fill-mode-backwards slide-in-from-bottom-10 fade-in",
+              "animate-fade-in-blur flex-wrap flex w-fit animate-in items-center justify-center gap-3 pt-2 delay-300 duration-300 ease-out fill-mode-backwards slide-in-from-bottom-10 fade-in",
               "mx-auto max-w-2xl sm:mx-0"
             )}
           >
