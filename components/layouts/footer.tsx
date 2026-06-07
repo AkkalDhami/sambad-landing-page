@@ -163,8 +163,8 @@ export function Footer() {
       <VerifiedBusinessDetails />
       <FooterBrandName />
       <div className="h-px w-full bg-linear-to-r via-border" />
-      <div className="flex w-full items-center flex-wrap justify-center py-4">
-        <p className="flex items-center gap-1 flex-wrap text-base text-muted-foreground">
+      <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4">
+        <p className="flex flex-wrap items-center gap-1 text-base text-muted-foreground">
           &copy; {new Date().getFullYear()} |{" "}
           <Link
             href={"https://www.blanxer.com/"}
@@ -176,6 +176,24 @@ export function Footer() {
           Technology Pvt. Ltd. | Made with{" "}
           <IconHeartFilled className="size-3.5 text-red-600" /> in Nepal
         </p>
+        <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+          Redesigned by{" "}
+          <Link
+            href={"https://www.akkal.com.np"}
+            target="_blank"
+            className="underline-offset-2 hover:underline"
+          >
+            Akkal Dhami
+          </Link>{" "}
+          {" | "}
+          <Link
+            href={"https://github.com/akkaldhami/sambad-landing-page"}
+            target="_blank"
+            className="underline-offset-2 hover:underline"
+          >
+            Source Code
+          </Link>
+        </div>
       </div>
     </footer>
   )
